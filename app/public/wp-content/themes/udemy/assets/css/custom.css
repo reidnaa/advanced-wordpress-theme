@@ -24,3 +24,14 @@
 
 /* CSS WIDGETS */
 #wp-calendar{ width: 100%; }
+
+.top-advert {
+    float: right;
+    padding: 5px;
+    border-left: 1px solid #EEE;
+    border-right: 1px solid #EEE;
+    position: absolute;
+	right: 0;
+    width: 50%;
+
+}

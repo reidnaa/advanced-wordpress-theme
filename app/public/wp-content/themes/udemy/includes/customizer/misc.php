@@ -1,6 +1,14 @@
 <?php 
 
 function rn_misc_customizer_section($wp_customizer){
+    $wp_customizer->add_setting('rn_add_popular_posts', [
+        'default' => 'false'
+    ]);
+
+    $wp_customizer->add_setting('rn_add_popular_posts_title', [
+        'default' => 'Breaking News'
+    ]);
+    
     $wp_customizer->add_setting('rn_header_show_search',[
         'default' => 'yes',
         'transport' => 'postMessage'
@@ -68,7 +76,7 @@ function rn_misc_customizer_section($wp_customizer){
             'settings' => 'rn_footer_copyright_text',
             'type' => 'checkbox' ,
             'choices' => [
-                'yes' => 'YES'
+                'yes' => __('YES', 'udemy')
             ]   
         )
         ));
@@ -82,7 +90,7 @@ function rn_misc_customizer_section($wp_customizer){
             'settings' => 'rn_footer_privacy_policy',
             'type' => 'checkbox' ,
             'choices' => [
-                'yes' => 'YES'
+                'yes' =>  __('YES', 'udemy')
             ]   
         )
         )); 
@@ -108,4 +116,29 @@ function rn_misc_customizer_section($wp_customizer){
                 'settings'   => 'rn_report_file',
             ) ) 
         );
+
+        $wp_customizer->add_control(new WP_Customize_Control(
+            $wp_customizer,
+            'rn_show_popular_posts_widget',
+            array(
+                'label' => __('Show Popular Posts in Header', 'udemy'),
+                'section' => 'rn_misc_section',
+                'settings' => 'rn_add_popular_posts',
+                'type' => 'checkbox' ,
+                'choices' => [
+                    'yes' => 'yes'
+                ]   
+            )
+            ));
+
+            $wp_customizer->add_control(new WP_Customize_Control(
+                $wp_customizer,
+                'rn_show_popular_posts_input',
+                array(
+                    'label' => __('Show Title for Popular Posts in Header', 'udemy'),
+                    'section' => 'rn_misc_section',
+                    'settings' => 'rn_add_popular_posts_title',
+                    'type' => 'text' ,  
+                )
+                ));
 }
